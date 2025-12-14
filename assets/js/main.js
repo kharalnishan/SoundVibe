@@ -177,6 +177,14 @@ if (galleryGrid) {
         if (imageModal) {
             modalImage.src = imgElement.src;
             modalImage.alt = imgElement.alt;
+            
+            // Display description if available
+            const description = imgElement.getAttribute('data-description');
+            const modalDescription = document.getElementById('modalDescription');
+            if (modalDescription && description) {
+                modalDescription.textContent = description;
+            }
+            
             imageModal.removeAttribute('hidden');
             document.body.style.overflow = 'hidden';
 
@@ -210,6 +218,13 @@ if (galleryGrid) {
             currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
             modalImage.src = galleryImages[currentImageIndex].src;
             modalImage.alt = galleryImages[currentImageIndex].alt;
+            
+            // Update description
+            const description = galleryImages[currentImageIndex].getAttribute('data-description');
+            const modalDescription = document.getElementById('modalDescription');
+            if (modalDescription && description) {
+                modalDescription.textContent = description;
+            }
         });
     }
 
@@ -219,6 +234,13 @@ if (galleryGrid) {
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             modalImage.src = galleryImages[currentImageIndex].src;
             modalImage.alt = galleryImages[currentImageIndex].alt;
+            
+            // Update description
+            const description = galleryImages[currentImageIndex].getAttribute('data-description');
+            const modalDescription = document.getElementById('modalDescription');
+            if (modalDescription && description) {
+                modalDescription.textContent = description;
+            }
         });
     }
 

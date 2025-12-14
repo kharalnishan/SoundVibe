@@ -45,76 +45,76 @@
             
             <div class="gallery-grid" id="galleryGrid">
                 <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+1" 
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=500&auto=format&fit=crop" 
                          alt="Album cover 1 - Neon Dreams" 
                          class="gallery-thumbnail"
                          tabindex="0"
                          role="button"
-                         aria-label="Click to enlarge Neon Dreams album cover">
+                         aria-label="Click to enlarge Neon Dreams album cover"
+                         data-description="Neon Dreams - A vibrant synthwave journey through retro-futuristic soundscapes with pulsing basslines and dreamy synths.">
                 </article>
                 <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+2" 
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=500&auto=format&fit=crop" 
                          alt="Album cover 2 - Electric Waves" 
                          class="gallery-thumbnail"
                          tabindex="0"
                          role="button"
-                         aria-label="Click to enlarge Electric Waves album cover">
+                         aria-label="Click to enlarge Electric Waves album cover"
+                         data-description="Electric Waves - Raw guitar riffs and thunderous drums create an electrifying rock experience from start to finish.">
                 </article>
                 <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+3" 
-                         alt="Album cover 3 - Cosmic Jounrney" 
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=500&auto=format&fit=crop" 
+                         alt="Album cover 3 - Urban Beats" 
                          class="gallery-thumbnail"
                          tabindex="0"
                          role="button"
-                         aria-label="Click to enlarge Cosmic Journey album cover">
+                         aria-label="Click to enlarge Urban Beats album cover"
+                         data-description="Urban Beats - Street-smart hip-hop with clever wordplay and hard-hitting production that captures the essence of city life.">
                 </article>
                 <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+4" 
-                         alt="Album cover 4 - Urban Beats" 
+                    <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=500&auto=format&fit=crop" 
+                         alt="Album cover 4 - Serenity" 
                          class="gallery-thumbnail"
                          tabindex="0"
                          role="button"
-                         aria-label="Click to enlarge Urban Beats album cover">
+                         aria-label="Click to enlarge Serenity album cover"
+                         data-description="Serenity - Peaceful acoustic melodies and gentle harmonies create a tranquil sanctuary for relaxation and meditation.">
                 </article>
                 <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+5" 
-                         alt="Album cover 5 - Serenity" 
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=500&auto=format&fit=crop" 
+                         alt="Album cover 5 - Golden Hour" 
                          class="gallery-thumbnail"
                          tabindex="0"
                          role="button"
-                         aria-label="Click to enlarge Serenity album cover">
+                         aria-label="Click to enlarge Golden Hour album cover"
+                         data-description="Golden Hour - Warm indie folk tunes perfect for sunset drives, featuring heartfelt lyrics and organic instrumentation.">
                 </article>
                 <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+6" 
-                         alt="Album cover 6 - Golden Hour" 
+                    <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?q=80&w=500&auto=format&fit=crop" 
+                         alt="Album cover 6 - Midnight Echo" 
                          class="gallery-thumbnail"
                          tabindex="0"
                          role="button"
-                         aria-label="Click to enlarge Golden Hour album cover">
+                         aria-label="Click to enlarge Midnight Echo album cover"
+                         data-description="Midnight Echo - Deep house beats meet soulful melodies in this late-night masterpiece perfect for urban exploration.">
                 </article>
                 <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+7" 
-                         alt="Album cover 7 - Midnight Echo" 
+                    <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=500&auto=format&fit=crop" 
+                         alt="Album cover 7 - Pulse" 
                          class="gallery-thumbnail"
                          tabindex="0"
                          role="button"
-                         aria-label="Click to enlarge Midnight Echo album cover">
+                         aria-label="Click to enlarge Pulse album cover"
+                         data-description="Pulse - High-energy electronic dance music compilation featuring festival anthems that will elevate any party atmosphere.">
                 </article>
                 <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+8" 
-                         alt="Album cover 8 - Pulse" 
+                    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=500&auto=format&fit=crop" 
+                         alt="Album cover 8 - Harmony" 
                          class="gallery-thumbnail"
                          tabindex="0"
                          role="button"
-                         aria-label="Click to enlarge Pulse album cover">
-                </article>
-                <article class="gallery-item">
-                    <img src="https://via.placeholder.com/250x250?text=Album+9" 
-                         alt="Album cover 9 - Harmony" 
-                         class="gallery-thumbnail"
-                         tabindex="0"
-                         role="button"
-                         aria-label="Click to enlarge Harmony album cover">
+                         aria-label="Click to enlarge Harmony album cover"
+                         data-description="Harmony - A beautiful collection of piano-driven compositions blending classical techniques with modern production.">
                 </article>
             </div>
         </section>
@@ -124,6 +124,7 @@
             <div class="modal-content">
                 <button class="close-btn" id="closeBtn" aria-label="Close image viewer">×</button>
                 <img id="modalImage" src="" alt="Enlarged album cover">
+                <p id="modalDescription" class="modal-description"></p>
                 <div class="modal-nav">
                     <button id="prevBtn" aria-label="Previous image">❮</button>
                     <button id="nextBtn" aria-label="Next image">❯</button>
@@ -136,28 +137,16 @@
             <h2 id="artist-photos-heading">Artist Photography</h2>
             <div class="photo-grid">
                 <article class="photo-item">
-                    <img src="https://via.placeholder.com/300x200?text=Concert+1" 
+                    <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&w=600&auto=format&fit=crop" 
                          alt="Live concert performance by Luna Echo">
                 </article>
                 <article class="photo-item">
-                    <img src="https://via.placeholder.com/300x200?text=Concert+2" 
-                         alt="The Groove Kings performing on stage">
-                </article>
-                <article class="photo-item">
-                    <img src="https://via.placeholder.com/300x200?text=Concert+3" 
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600&auto=format&fit=crop" 
                          alt="Serene Soul acoustic performance">
                 </article>
                 <article class="photo-item">
-                    <img src="https://via.placeholder.com/300x200?text=Concert+4" 
-                         alt="Rock Revival band concert">
-                </article>
-                <article class="photo-item">
-                    <img src="https://via.placeholder.com/300x200?text=Concert+5" 
+                    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=600&auto=format&fit=crop" 
                          alt="Indie Tide live performance">
-                </article>
-                <article class="photo-item">
-                    <img src="https://via.placeholder.com/300x200?text=Concert+6" 
-                         alt="Country Stories festival performance">
                 </article>
             </div>
         </section>
