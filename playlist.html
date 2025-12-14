@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlists - SoundVibe Music Streaming</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <header role="banner">
+        <div class="header-content">
+            <div class="logo">
+                <h1>♪ SoundVibe</h1>
+                <p class="tagline">Your Music, Your Vibe</p>
+            </div>
+            <nav role="navigation" aria-label="Main Navigation">
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="playlist.html" class="active" aria-current="page">Playlists</a></li>
+                    <li><a href="artists.html">Artists</a></li>
+                    <li><a href="media.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        <!-- Page Header -->
+        <section class="page-hero" aria-labelledby="playlist-title">
+            <h1 id="playlist-title">Explore Playlists</h1>
+            <p>Curated collections for every mood and moment</p>
+        </section>
+
+        <!-- Featured Playlists -->
+        <section class="playlists" aria-labelledby="featured-heading">
+            <h2 id="featured-heading">Featured Playlists</h2>
+            <div class="playlist-grid">
+                <article class="playlist-card" data-genre="electronic">
+                    <div class="playlist-cover">
+                        <img src="https://via.placeholder.com/300x300?text=Workout+Energy" alt="Workout Energy playlist cover">
+                    </div>
+                    <h3>Workout Energy</h3>
+                    <p class="playlist-desc">High-energy tracks to power your fitness routine</p>
+                    <p class="playlist-meta">42 tracks • 2h 15m</p>
+                    <button class="play-btn" aria-label="Play Workout Energy playlist" aria-pressed="false" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">▶</button>
+                </article>
+
+                <article class="playlist-card" data-genre="chill electronic">
+                    <div class="playlist-cover">
+                        <img src="https://via.placeholder.com/300x300?text=Chillout+Lounge" alt="Chillout Lounge playlist cover">
+                    </div>
+                    <h3>Chillout Lounge</h3>
+                    <p class="playlist-desc">Relax and unwind with smooth, ambient sounds</p>
+                    <p class="playlist-meta">58 tracks • 3h 42m</p>
+                    <button class="play-btn" aria-label="Play Chillout Lounge playlist" aria-pressed="false" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">▶</button>
+                </article>
+
+                <article class="playlist-card" data-genre="pop funk">
+                    <div class="playlist-cover">
+                        <img src="https://via.placeholder.com/300x300?text=Summer+Vibes" alt="Summer Vibes playlist cover">
+                    </div>
+                    <h3>Summer Vibes</h3>
+                    <p class="playlist-desc">Feel the heat with sun-soaked pop and funk hits</p>
+                    <p class="playlist-meta">51 tracks • 3h 28m</p>
+                    <button class="play-btn" aria-label="Play Summer Vibes playlist" aria-pressed="false" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">▶</button>
+                </article>
+
+                <article class="playlist-card" data-genre="jazz">
+                    <div class="playlist-cover">
+                        <img src="https://via.placeholder.com/300x300?text=Late+Night+Jazz" alt="Late Night Jazz playlist cover">
+                    </div>
+                    <h3>Late Night Jazz</h3>
+                    <p class="playlist-desc">Smooth jazz for late-night contemplation</p>
+                    <p class="playlist-meta">67 tracks • 4h 11m</p>
+                    <button class="play-btn" aria-label="Play Late Night Jazz playlist" aria-pressed="false" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3">▶</button>
+                </article>
+
+                <article class="playlist-card" data-genre="indie rock">
+                    <div class="playlist-cover">
+                        <img src="https://via.placeholder.com/300x300?text=Indie+Discovery" alt="Indie Discovery playlist cover">
+                    </div>
+                    <h3>Indie Discovery</h3>
+                    <p class="playlist-desc">Emerging indie artists you need to hear</p>
+                    <p class="playlist-meta">45 tracks • 2h 54m</p>
+                    <button class="play-btn" aria-label="Play Indie Discovery playlist" aria-pressed="false" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3">▶</button>
+                </article>
+
+                <article class="playlist-card" data-genre="classical">
+                    <div class="playlist-cover">
+                        <img src="https://via.placeholder.com/300x300?text=Classical+Masterpieces" alt="Classical Masterpieces playlist cover">
+                    </div>
+                    <h3>Classical Masterpieces</h3>
+                    <p class="playlist-desc">Timeless classics from the greatest composers</p>
+                    <p class="playlist-meta">72 tracks • 5h 33m</p>
+                    <button class="play-btn" aria-label="Play Classical Masterpieces playlist" aria-pressed="false" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3">▶</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- Genre Section -->
+        <section class="genres" aria-labelledby="genres-heading">
+            <h2 id="genres-heading">Browse by Genre</h2>
+            <div class="genre-grid">
+                <button class="genre-btn active" data-target="playlist" data-genre="all">All</button>
+                <button class="genre-btn" data-target="playlist" data-genre="pop">Pop</button>
+                <button class="genre-btn" data-target="playlist" data-genre="hip hop">Hip Hop</button>
+                <button class="genre-btn" data-target="playlist" data-genre="rock">Rock</button>
+                <button class="genre-btn" data-target="playlist" data-genre="electronic">Electronic</button>
+                <button class="genre-btn" data-target="playlist" data-genre="r&b">R&B</button>
+                <button class="genre-btn" data-target="playlist" data-genre="country">Country</button>
+                <button class="genre-btn" data-target="playlist" data-genre="metal">Metal</button>
+                <button class="genre-btn" data-target="playlist" data-genre="reggae">Reggae</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="playlist.html">Playlists</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="mailto:support@soundvibe.com">support@soundvibe.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#" aria-label="Follow on Facebook">Facebook</a></li>
+                    <li><a href="#" aria-label="Follow on Instagram">Instagram</a></li>
+                    <li><a href="#" aria-label="Follow on Twitter">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2025 SoundVibe Music Streaming. All rights reserved.</p>
+                <p><a href="terms.html">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <audio id="audioPlayer" preload="none" aria-hidden="true"></audio>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

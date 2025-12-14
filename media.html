@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - SoundVibe Music Streaming</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <header role="banner">
+        <div class="header-content">
+            <div class="logo">
+                <h1>♪ SoundVibe</h1>
+                <p class="tagline">Your Music, Your Vibe</p>
+            </div>
+            <nav role="navigation" aria-label="Main Navigation">
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="playlist.html">Playlists</a></li>
+                    <li><a href="artists.html">Artists</a></li>
+                    <li><a href="media.html" class="active" aria-current="page">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        <!-- Page Header -->
+        <section class="page-hero" aria-labelledby="gallery-title">
+            <h1 id="gallery-title">Music Gallery</h1>
+            <p>Explore amazing album covers and artist photography</p>
+        </section>
+
+        <!-- Interactive Gallery -->
+        <section class="gallery" aria-labelledby="album-gallery-heading">
+            <h2 id="album-gallery-heading">Album Covers Gallery</h2>
+            <p class="gallery-instruction">Click on any image to view larger</p>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+1" 
+                         alt="Album cover 1 - Neon Dreams" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Neon Dreams album cover">
+                </article>
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+2" 
+                         alt="Album cover 2 - Electric Waves" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Electric Waves album cover">
+                </article>
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+3" 
+                         alt="Album cover 3 - Cosmic Jounrney" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Cosmic Journey album cover">
+                </article>
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+4" 
+                         alt="Album cover 4 - Urban Beats" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Urban Beats album cover">
+                </article>
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+5" 
+                         alt="Album cover 5 - Serenity" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Serenity album cover">
+                </article>
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+6" 
+                         alt="Album cover 6 - Golden Hour" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Golden Hour album cover">
+                </article>
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+7" 
+                         alt="Album cover 7 - Midnight Echo" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Midnight Echo album cover">
+                </article>
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+8" 
+                         alt="Album cover 8 - Pulse" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Pulse album cover">
+                </article>
+                <article class="gallery-item">
+                    <img src="https://via.placeholder.com/250x250?text=Album+9" 
+                         alt="Album cover 9 - Harmony" 
+                         class="gallery-thumbnail"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Click to enlarge Harmony album cover">
+                </article>
+            </div>
+        </section>
+
+        <!-- Modal for enlarged images -->
+        <div id="imageModal" class="modal" aria-label="Enlarged image viewer" role="dialog" aria-modal="true" hidden>
+            <div class="modal-content">
+                <button class="close-btn" id="closeBtn" aria-label="Close image viewer">×</button>
+                <img id="modalImage" src="" alt="Enlarged album cover">
+                <div class="modal-nav">
+                    <button id="prevBtn" aria-label="Previous image">❮</button>
+                    <button id="nextBtn" aria-label="Next image">❯</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Artist Photography Section -->
+        <section class="artist-photos" aria-labelledby="artist-photos-heading">
+            <h2 id="artist-photos-heading">Artist Photography</h2>
+            <div class="photo-grid">
+                <article class="photo-item">
+                    <img src="https://via.placeholder.com/300x200?text=Concert+1" 
+                         alt="Live concert performance by Luna Echo">
+                </article>
+                <article class="photo-item">
+                    <img src="https://via.placeholder.com/300x200?text=Concert+2" 
+                         alt="The Groove Kings performing on stage">
+                </article>
+                <article class="photo-item">
+                    <img src="https://via.placeholder.com/300x200?text=Concert+3" 
+                         alt="Serene Soul acoustic performance">
+                </article>
+                <article class="photo-item">
+                    <img src="https://via.placeholder.com/300x200?text=Concert+4" 
+                         alt="Rock Revival band concert">
+                </article>
+                <article class="photo-item">
+                    <img src="https://via.placeholder.com/300x200?text=Concert+5" 
+                         alt="Indie Tide live performance">
+                </article>
+                <article class="photo-item">
+                    <img src="https://via.placeholder.com/300x200?text=Concert+6" 
+                         alt="Country Stories festival performance">
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="playlist.html">Playlists</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="mailto:support@soundvibe.com">support@soundvibe.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#" aria-label="Follow on Facebook">Facebook</a></li>
+                    <li><a href="#" aria-label="Follow on Instagram">Instagram</a></li>
+                    <li><a href="#" aria-label="Follow on Twitter">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2025 SoundVibe Music Streaming. All rights reserved.</p>
+                <p><a href="terms.html">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists - SoundVibe Music Streaming</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <header role="banner">
+        <div class="header-content">
+            <div class="logo">
+                <h1>♪ SoundVibe</h1>
+                <p class="tagline">Your Music, Your Vibe</p>
+            </div>
+            <nav role="navigation" aria-label="Main Navigation">
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="playlist.html">Playlists</a></li>
+                    <li><a href="artists.html" class="active" aria-current="page">Artists</a></li>
+                    <li><a href="media.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        <!-- Page Header -->
+        <section class="page-hero" aria-labelledby="artists-title">
+            <h1 id="artists-title">Featured Artists</h1>
+            <p>Discover and follow your favorite musicians</p>
+        </section>
+
+        <!-- Artists Grid -->
+        <section class="artists" aria-labelledby="featured-artists-heading">
+            <h2 id="featured-artists-heading">Our Featured Artists</h2>
+            <div class="artists-grid">
+                <article class="artist-card" data-genre="electronic synthwave">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200?text=Artist+1" alt="Luna Echo - Electronic artist">
+                    </div>
+                    <h3>Luna Echo</h3>
+                    <p class="artist-genre">Electronic • Synthwave</p>
+                    <p class="artist-followers">2.4M followers</p>
+                    <button class="follow-btn" aria-label="Follow Luna Echo">Follow</button>
+                </article>
+
+                <article class="artist-card" data-genre="hip hop rap">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200?text=Artist+2" alt="The Groove Kings - Hip Hop group">
+                    </div>
+                    <h3>The Groove Kings</h3>
+                    <p class="artist-genre">Hip Hop • Rap</p>
+                    <p class="artist-followers">3.1M followers</p>
+                    <button class="follow-btn" aria-label="Follow The Groove Kings">Follow</button>
+                </article>
+
+                <article class="artist-card" data-genre="jazz soul">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200?text=Artist+3" alt="Serene Soul - Jazz artist">
+                    </div>
+                    <h3>Serene Soul</h3>
+                    <p class="artist-genre">Jazz • Soul</p>
+                    <p class="artist-followers">1.8M followers</p>
+                    <button class="follow-btn" aria-label="Follow Serene Soul">Follow</button>
+                </article>
+
+                <article class="artist-card" data-genre="rock alternative">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200?text=Artist+4" alt="Rock Revival - Rock band">
+                    </div>
+                    <h3>Rock Revival</h3>
+                    <p class="artist-genre">Rock • Alternative</p>
+                    <p class="artist-followers">2.9M followers</p>
+                    <button class="follow-btn" aria-label="Follow Rock Revival">Follow</button>
+                </article>
+
+                <article class="artist-card" data-genre="indie alternative rock">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200?text=Artist+5" alt="Indie Tide - Indie rock artist">
+                    </div>
+                    <h3>Indie Tide</h3>
+                    <p class="artist-genre">Indie • Alternative Rock</p>
+                    <p class="artist-followers">1.5M followers</p>
+                    <button class="follow-btn" aria-label="Follow Indie Tide">Follow</button>
+                </article>
+
+                <article class="artist-card" data-genre="country folk">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200?text=Artist+6" alt="Country Stories - Country artist">
+                    </div>
+                    <h3>Country Stories</h3>
+                    <p class="artist-genre">Country • Folk</p>
+                    <p class="artist-followers">2.2M followers</p>
+                    <button class="follow-btn" aria-label="Follow Country Stories">Follow</button>
+                </article>
+
+                <article class="artist-card" data-genre="pop">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200?text=Artist+7" alt="Pop Sensation - Pop star">
+                    </div>
+                    <h3>Pop Sensation</h3>
+                    <p class="artist-genre">Pop • Mainstream</p>
+                    <p class="artist-followers">5.7M followers</p>
+                    <button class="follow-btn" aria-label="Follow Pop Sensation">Follow</button>
+                </article>
+
+                <article class="artist-card" data-genre="classical symphony">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200?text=Artist+8" alt="Classical Virtuoso - Classical musician">
+                    </div>
+                    <h3>Classical Virtuoso</h3>
+                    <p class="artist-genre">Classical • Symphony</p>
+                    <p class="artist-followers">880K followers</p>
+                    <button class="follow-btn" aria-label="Follow Classical Virtuoso">Follow</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- Genre Section -->
+        <section class="genres" aria-labelledby="genre-heading">
+            <h2 id="genre-heading">Explore by Genre</h2>
+            <div class="genre-grid">
+                <button class="genre-btn active" data-target="artist" data-genre="all">All</button>
+                <button class="genre-btn" data-target="artist" data-genre="pop">Pop</button>
+                <button class="genre-btn" data-target="artist" data-genre="hip hop">Hip Hop</button>
+                <button class="genre-btn" data-target="artist" data-genre="rock">Rock</button>
+                <button class="genre-btn" data-target="artist" data-genre="electronic">Electronic</button>
+                <button class="genre-btn" data-target="artist" data-genre="r&b">R&B</button>
+                <button class="genre-btn" data-target="artist" data-genre="country">Country</button>
+                <button class="genre-btn" data-target="artist" data-genre="metal">Metal</button>
+                <button class="genre-btn" data-target="artist" data-genre="reggae">Reggae</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="playlist.html">Playlists</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="mailto:support@soundvibe.com">support@soundvibe.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#" aria-label="Follow on Facebook">Facebook</a></li>
+                    <li><a href="#" aria-label="Follow on Instagram">Instagram</a></li>
+                    <li><a href="#" aria-label="Follow on Twitter">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2025 SoundVibe Music Streaming. All rights reserved.</p>
+                <p><a href="terms.html">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
