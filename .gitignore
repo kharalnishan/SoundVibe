@@ -11,3 +11,5 @@ build/
 *.swo
 *~
 .cache/
+# Ignore the fake commit script
+fake_commits.sh
