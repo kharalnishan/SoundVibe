@@ -1231,6 +1231,224 @@ footer {
 }
 
 /* ===========================
+   AUTHENTICATION PAGES
+   ============================ */
+
+.auth-section {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--darker-gray) 100%);
+}
+
+.auth-container {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    max-width: 450px;
+    animation: slideUp 0.5s ease-out;
+}
+
+.auth-container h2 {
+    text-align: center;
+    color: var(--dark-blue);
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-display);
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-lg);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.auth-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.auth-form label {
+    font-weight: 600;
+    color: var(--darker-gray);
+    font-size: 0.9rem;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    padding: var(--spacing-sm);
+    border: 2px solid var(--medium-gray);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    transition: all var(--transition-base);
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+.auth-form input::placeholder {
+    color: var(--medium-gray);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.form-check {
+    flex-direction: row !important;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.form-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-blue);
+}
+
+.form-check label {
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+.form-hint {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+}
+
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--light-gray);
+}
+
+.auth-footer a {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* Alert Messages */
+.alert {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.alert-error {
+    background: #FEF2F2;
+    border: 1px solid #FCA5A5;
+    color: var(--error-red);
+}
+
+.alert-success {
+    background: #F0FDF4;
+    border: 1px solid #86EFAC;
+    color: var(--success-green);
+}
+
+.alert-icon {
+    font-size: 1.2rem;
+}
+
+.error-list {
+    margin: 0;
+    padding-left: var(--spacing-md);
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 0.85rem;
+}
+
+/* Navigation Auth Items */
+.cta-nav-btn {
+    background: var(--primary-blue);
+    color: var(--white) !important;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.cta-nav-btn:hover {
+    background: var(--accent-purple);
+    transform: translateY(-2px);
+}
+
+.user-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.user-icon {
+    font-size: 1.2rem;
+}
+
+.logout-link {
+    color: var(--error-red) !important;
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    z-index: 9999;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ===========================
    RESPONSIVE DESIGN
    ============================ */
 
