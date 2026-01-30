@@ -648,6 +648,16 @@ main {
     box-shadow: 0 4px 12px rgba(14, 165, 233, 0.35);
 }
 
+/* Follow state - when user is following an artist */
+.follow-btn.is-following {
+    background: var(--accent-pink); /* orange accent */
+    color: var(--white);
+}
+
+.follow-btn.is-following:hover {
+    background: #EA580C; /* darker orange on hover */
+}
+
 /* Genre Grid */
 .genres {
     padding: var(--spacing-xl) var(--spacing-md);

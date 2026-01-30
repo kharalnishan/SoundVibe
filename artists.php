@@ -9,6 +9,15 @@ require_once __DIR__ . '/includes/auth.php';
 $pdo = getDBConnection();
 
 // Fetch artists from database
+// If user is logged in, get their followed artists
+$userFollows = [];
+if (isLoggedIn()) {
+    $currentUser = getCurrentUser();
+    $followStmt = $pdo->prepare("SELECT artist_id FROM user_favorites WHERE user_id = ? AND artist_id IS NOT NULL");
+    $followStmt->execute([$currentUser['id']]);
+    $userFollows = array_column($followStmt->fetchAll(PDO::FETCH_ASSOC), 'artist_id');
+}
+
 $stmt = $pdo->query("SELECT * FROM artists ORDER BY is_featured DESC, followers DESC");
 $artists = $stmt->fetchAll();
 
@@ -27,15 +36,17 @@ include __DIR__ . '/includes/header.php';
             <h2 id="artists-heading">Featured Artists</h2>
             <div class="artists-grid">
                 <?php foreach ($artists as $artist): ?>
-                    <article class="artist-card" data-genre="<?php echo htmlspecialchars(strtolower($artist['genre'])); ?>">
+                    <article class="artist-card" data-genre="<?php echo htmlspecialchars(strtolower($artist['genre'])); ?>" data-artist-id="<?php echo $artist['id']; ?>">
                         <div class="artist-image">
                             <img src="<?php echo htmlspecialchars($artist['image_url']); ?>" alt="<?php echo htmlspecialchars($artist['name']); ?>">
                         </div>
                         <h3><?php echo htmlspecialchars($artist['name']); ?></h3>
                         <p class="artist-genre"><?php echo htmlspecialchars($artist['genre']); ?></p>
                         <p class="artist-followers"><?php echo number_format($artist['followers']); ?> followers</p>
-                        <?php if (isLoggedIn()): ?>
-                            <button class="follow-btn" aria-label="Follow <?php echo htmlspecialchars($artist['name']); ?>">Follow</button>
+                        <?php if (isLoggedIn()):
+                            $isFollowed = in_array($artist['id'], $userFollows);
+                        ?>
+                            <button class="follow-btn <?php echo $isFollowed ? 'is-following' : ''; ?>" aria-label="Follow <?php echo htmlspecialchars($artist['name']); ?>"><?php echo $isFollowed ? 'Following' : 'Follow'; ?></button>
                         <?php endif; ?>
                     </article>
                 <?php endforeach; ?>

@@ -77,6 +77,10 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
+    <script>
+        // Expose CSRF token for client-side requests
+        window.SV_CSRF_TOKEN = '<?php echo generateCSRFToken(); ?>';
+    </script>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     

@@ -343,13 +343,46 @@ function resetPlayButton() {
     }
 }
 
-// Follow buttons
+// Follow buttons (send request to server to persist follow/unfollow)
 document.querySelectorAll('.follow-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
         e.preventDefault();
-        const isFollowing = btn.textContent === 'Following';
-        btn.textContent = isFollowing ? 'Follow' : 'Following';
-        btn.style.background = isFollowing ? '' : '#F97316';
+
+        const artistId = btn.closest('[data-artist-id]')?.dataset.artistId;
+        if (!artistId) return;
+
+        const isFollowing = btn.classList.contains('is-following');
+
+        try {
+            const resp = await fetch('/api/follow_artist.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ artist_id: artistId, action: isFollowing ? 'unfollow' : 'follow', csrf_token: window.SV_CSRF_TOKEN || '' })
+            });
+
+            const data = await resp.json();
+            if (!resp.ok) throw new Error(data.error || 'Request failed');
+
+            // Update button state
+            if (data.following) {
+                btn.classList.add('is-following');
+                btn.textContent = 'Following';
+                btn.style.background = '#F97316';
+            } else {
+                btn.classList.remove('is-following');
+                btn.textContent = 'Follow';
+                btn.style.background = '';
+            }
+
+            // Update followers count in UI if present
+            const followersEl = btn.closest('.artist-card')?.querySelector('.artist-followers');
+            if (followersEl && typeof data.followers_count !== 'undefined') {
+                followersEl.textContent = Number(data.followers_count).toLocaleString() + ' followers';
+            }
+        } catch (err) {
+            console.error('Follow action failed', err);
+            // Optionally show an inline error or toast
+        }
     });
 });
 
