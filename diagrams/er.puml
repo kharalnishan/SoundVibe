@@ -1,0 +1,80 @@
+@startuml
+' Simple ER diagram for SoundVibe
+skinparam rectangle {
+  Shadowing 2
+  BorderColor #2b2b2b
+}
+
+entity "users" as users {
+  * id : INT
+  --
+  username
+  email
+  password
+  full_name
+  first_name
+  last_name
+  role
+  created_at
+}
+
+entity "artists" as artists {
+  * id : INT
+  --
+  name
+  genre
+  image_url
+}
+
+entity "albums" as albums {
+  * id : INT
+  --
+  title
+  artist_id : FK -> artists.id
+}
+
+entity "tracks" as tracks {
+  * id : INT
+  --
+  title
+  artist_id : FK -> artists.id
+  album_id  : FK -> albums.id
+  duration
+}
+
+entity "playlists" as playlists {
+  * id : INT
+  --
+  name
+  user_id : FK -> users.id
+}
+
+entity "playlist_tracks" as playlist_tracks {
+  * id : INT
+  --
+  playlist_id : FK -> playlists.id
+  track_id : FK -> tracks.id
+  position
+}
+
+entity "user_favorites" as user_favorites {
+  * id : INT
+  --
+  user_id : FK -> users.id
+  track_id
+  artist_id
+  playlist_id
+}
+
+users ||--o{ playlists : "creates"
+users ||--o{ user_favorites : "favorites"
+users ||--o{ contact_messages : "messages"
+users ||--o{ user_sessions : "sessions"
+
+artists ||--o{ albums : "creates"
+artists ||--o{ tracks : "performs"
+albums ||--o{ tracks : "contains"
+playlists ||--o{ playlist_tracks : "contains"
+tracks ||--o{ playlist_tracks : "in"
+
+@enduml

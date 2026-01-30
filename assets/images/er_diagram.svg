@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <style>
+    .box { fill:#fff; stroke:#2b2b2b; stroke-width:2 }
+    .title { font: bold 16px sans-serif; }
+    .col { font: 12px monospace; }
+    .fk { font-style: italic; fill:#555 }
+    .arrow { stroke:#2b2b2b; stroke-width:2; fill:none; marker-end:url(#arrowhead) }
+    .shadow { filter: url(#f1); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2b2b2b" />
+    </marker>
+    <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- users -->
+  <g transform="translate(40,40)" class="shadow">
+    <rect class="box" width="300" height="140" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">users</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">username, email</text>
+    <text x="16" y="84" class="col">password, full_name</text>
+    <text x="16" y="100" class="col">role, profile_image</text>
+    <text x="16" y="116" class="col">created_at, updated_at</text>
+  </g>
+
+  <!-- artists -->
+  <g transform="translate(420,40)" class="shadow">
+    <rect class="box" width="300" height="120" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">artists</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">name, genre, image_url</text>
+    <text x="16" y="84" class="col">bio, followers</text>
+    <text x="16" y="100" class="col">created_at</text>
+  </g>
+
+  <!-- albums -->
+  <g transform="translate(420,200)" class="shadow">
+    <rect class="box" width="300" height="120" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">albums</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">title, artist_id (FK)</text>
+    <text x="16" y="84" class="col">cover_image, release_year</text>
+    <text x="16" y="100" class="col">genre, created_at</text>
+  </g>
+
+  <!-- tracks -->
+  <g transform="translate(420,360)" class="shadow">
+    <rect class="box" width="300" height="140" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">tracks</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">title, artist_id (FK)</text>
+    <text x="16" y="84" class="col">album_id (FK), duration</text>
+    <text x="16" y="100" class="col">audio_url, play_count</text>
+    <text x="16" y="116" class="col">created_at</text>
+  </g>
+
+  <!-- playlists -->
+  <g transform="translate(760,40)" class="shadow">
+    <rect class="box" width="340" height="140" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">playlists</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">name, user_id (FK)</text>
+    <text x="16" y="84" class="col">is_public, is_featured</text>
+    <text x="16" y="100" class="col">genre, track_count, total_duration</text>
+    <text x="16" y="116" class="col">created_at</text>
+  </g>
+
+  <!-- playlist_tracks -->
+  <g transform="translate(760,220)" class="shadow">
+    <rect class="box" width="340" height="100" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">playlist_tracks</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">playlist_id (FK), track_id (FK), position</text>
+  </g>
+
+  <!-- user_favorites -->
+  <g transform="translate(40,220)" class="shadow">
+    <rect class="box" width="300" height="120" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">user_favorites</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">user_id (FK), track_id (FK)</text>
+    <text x="16" y="84" class="col">artist_id (FK), playlist_id (FK)</text>
+    <text x="16" y="100" class="col">created_at</text>
+  </g>
+
+  <!-- contact_messages -->
+  <g transform="translate(40,360)" class="shadow">
+    <rect class="box" width="300" height="120" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">contact_messages</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">name, email, subject</text>
+    <text x="16" y="84" class="col">message, user_id (FK), is_read</text>
+    <text x="16" y="100" class="col">created_at</text>
+  </g>
+
+  <!-- user_sessions -->
+  <g transform="translate(760,360)" class="shadow">
+    <rect class="box" width="340" height="100" rx="6" ry="6"/>
+    <text x="16" y="28" class="title">user_sessions</text>
+    <text x="16" y="52" class="col">id (PK)</text>
+    <text x="16" y="68" class="col">user_id (FK), session_token</text>
+    <text x="16" y="84" class="col">expires_at, created_at</text>
+  </g>
+
+  <!-- relationships (arrows) -->
+  <path class="arrow" d="M340,110 L420,110" />
+  <path class="arrow" d="M460,160 L460,200" />
+  <path class="arrow" d="M460,320 L460,360" />
+  <path class="arrow" d="M700,320 L760,260" />
+  <path class="arrow" d="M700,260 L760,120" />
+  <path class="arrow" d="M700,460 L760,400" />
+  <path class="arrow" d="M340,260 L420,260" />
+  <path class="arrow" d="M340,420 L420,420" />
+  <path class="arrow" d="M340,260 L40,260" />
+
+  <!-- label explaining PK/FK -->
+  <text x="40" y="520" class="col">PK = primary key, FK = foreign key. Use ON DELETE CASCADE or SET NULL where appropriate.</text>
+</svg>
