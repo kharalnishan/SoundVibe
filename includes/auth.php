@@ -22,11 +22,28 @@ function getCurrentUser() {
     if (!isLoggedIn()) {
         return null;
     }
-    
+
     $pdo = getDBConnection();
-    $stmt = $pdo->prepare("SELECT id, username, email, first_name, last_name, role, profile_image FROM users WHERE id = ? AND is_active = 1");
+    $stmt = $pdo->prepare("SELECT id, username, email, first_name, last_name, full_name, role, profile_image, created_at FROM users WHERE id = ? AND is_active = 1");
     $stmt->execute([$_SESSION['user_id']]);
-    return $stmt->fetch();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        return null;
+    }
+
+    // Provide a consistent `name` field (used across the app).
+    // Prefer `full_name` if present, otherwise fall back to first+last or username.
+    $full = trim((string)($user['full_name'] ?? ''));
+    if ($full !== '') {
+        $user['name'] = $full;
+    } else {
+        $first = trim((string)($user['first_name'] ?? ''));
+        $last = trim((string)($user['last_name'] ?? ''));
+        $user['name'] = trim($first . ' ' . $last) ?: ($user['username'] ?? '');
+    }
+
+    return $user;
 }
 
 /**
@@ -125,11 +142,12 @@ function registerUser($username, $email, $password, $firstName, $lastName) {
     // Hash password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     
-    // Insert user
-    $stmt = $pdo->prepare("INSERT INTO users (username, email, password, first_name, last_name, role) VALUES (?, ?, ?, ?, ?, 'normal')");
-    
+    // Compose full_name and insert user (store both parts and full_name for compatibility)
+    $fullName = trim($firstName . ' ' . $lastName);
+    $stmt = $pdo->prepare("INSERT INTO users (username, email, password, first_name, last_name, full_name, role) VALUES (?, ?, ?, ?, ?, ?, 'normal')");
+
     try {
-        $stmt->execute([$username, $email, $hashedPassword, $firstName, $lastName]);
+        $stmt->execute([$username, $email, $hashedPassword, $firstName, $lastName, $fullName]);
         return ['success' => true, 'user_id' => $pdo->lastInsertId()];
     } catch (PDOException $e) {
         error_log("Registration error: " . $e->getMessage());
@@ -166,6 +184,19 @@ function loginUser($email, $password) {
     // Set session
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
+    // Provide a human-friendly name in session (prefer full_name when available)
+    // Re-fetch full_name in case it exists
+    $stmt = $pdo->prepare("SELECT full_name, first_name, last_name FROM users WHERE id = ?");
+    $stmt->execute([$user['id']]);
+    $nameRow = $stmt->fetch(PDO::FETCH_ASSOC);
+    $sessionFull = trim((string)($nameRow['full_name'] ?? ''));
+    if ($sessionFull !== '') {
+        $_SESSION['user_name'] = $sessionFull;
+    } else {
+        $first = trim((string)($nameRow['first_name'] ?? ''));
+        $last = trim((string)($nameRow['last_name'] ?? ''));
+        $_SESSION['user_name'] = trim($first . ' ' . $last) ?: $user['username'];
+    }
     $_SESSION['role'] = $user['role'];
     
     // Regenerate session ID for security

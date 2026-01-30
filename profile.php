@@ -45,19 +45,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
             
-            // Update profile
+            // Update profile: store a single `full_name` field in DB (preferred)
             if (empty($errors)) {
                 try {
                     $conn = getDBConnection();
-                    $stmt = $conn->prepare("UPDATE users SET name = ?, email = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?");
+                    $stmt = $conn->prepare("UPDATE users SET full_name = ?, email = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?");
                     $stmt->execute([$name, $email, $user['id']]);
-                    
+
                     // Update session data
-                    $_SESSION['user_name'] = $name;
+                    $_SESSION['user_name'] = trim($name) ?: ($user['username'] ?? '');
                     $_SESSION['user_email'] = $email;
-                    
+
                     $success = 'Profile updated successfully!';
-                    
+
                     // Refresh user data
                     $user = getCurrentUser();
                 } catch (PDOException $e) {

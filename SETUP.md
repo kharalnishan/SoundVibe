@@ -33,6 +33,17 @@ mysql -u svibe_admin -p soundvibe < sql/schema.sql
 # Password: Svibe@2025Pwd
 ```
 
+### Migration notes (adding `full_name`)
+
+If you have an existing database from an earlier version, run these SQL commands to add the `full_name` column and populate it from `first_name`/`last_name`:
+
+```sql
+ALTER TABLE users ADD COLUMN full_name VARCHAR(150) NULL;
+UPDATE users SET full_name = TRIM(CONCAT_WS(' ', NULLIF(first_name, ''), NULLIF(last_name, ''))) WHERE full_name IS NULL OR full_name = '';
+```
+
+The application has been updated to prefer `full_name` where present. New registrations will set `full_name` automatically.
+
 ### 3. Start the Server
 ```bash
 cd /path/to/drivesmart

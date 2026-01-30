@@ -177,3 +177,11 @@ INSERT INTO albums (title, artist_id, cover_image, release_year, genre, descript
 ('Urban Pulse', 2, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=500&auto=format&fit=crop', 2024, 'Hip Hop', 'Street-smart hip-hop with clever wordplay'),
 ('Midnight Serenade', 3, 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=500&auto=format&fit=crop', 2023, 'Jazz', 'Smooth jazz for late-night listening'),
 ('Electric Storm', 4, 'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=500&auto=format&fit=crop', 2024, 'Rock', 'Raw guitar riffs and thunderous drums');
+
+-- Migration: add `full_name` column if not present and populate from existing names
+ALTER TABLE users ADD COLUMN IF NOT EXISTS full_name VARCHAR(150) NULL AFTER last_name;
+
+-- Populate `full_name` for existing rows where it's NULL
+UPDATE users SET full_name = TRIM(CONCAT_WS(' ', NULLIF(first_name, ''), NULLIF(last_name, ''))) WHERE full_name IS NULL OR full_name = '';
+
+-- Ensure future inserts include full_name (registration code updated in app)
