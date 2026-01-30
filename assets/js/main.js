@@ -106,7 +106,7 @@ if (contactForm) {
         }
     }
 
-    // Form submission
+    // Form submission: validate client-side, then submit to server
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -119,21 +119,8 @@ if (contactForm) {
         });
 
         if (isFormValid) {
-            // Show success message
-            showFormFeedback('Thank you for your message! We\'ll get back to you soon.', 'success');
-
-            // Reset form
-            contactForm.reset();
-
-            // Clear error states
-            document.querySelectorAll('.input-error').forEach(el => {
-                el.classList.remove('input-error');
-            });
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('formFeedback').style.display = 'none';
-            }, 5000);
+            // Proceed with normal form submission to server (will be handled by contact.php)
+            contactForm.submit();
         } else {
             showFormFeedback('Please correct the errors above and try again.', 'error');
         }
