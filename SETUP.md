@@ -44,6 +44,18 @@ UPDATE users SET full_name = TRIM(CONCAT_WS(' ', NULLIF(first_name, ''), NULLIF(
 
 The application has been updated to prefer `full_name` where present. New registrations will set `full_name` automatically.
 
+### Safe migration script
+I've added a small script `migrate_fullname_featured.sh` to run the migration safely. It checks whether columns already exist and only applies changes when needed.
+
+Run it from the project root:
+```bash
+chmod +x migrate_fullname_featured.sh
+./migrate_fullname_featured.sh -u svibe_admin -d soundvibe -h localhost
+# You will be prompted for the DB password
+```
+
+This avoids syntax differences between MySQL versions and prevents duplicate-key or re-import errors.
+
 ### 3. Start the Server
 ```bash
 cd /path/to/drivesmart

@@ -150,7 +150,8 @@ CREATE TABLE IF NOT EXISTS user_sessions (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Insert default admin user (password: Admin@2025)
-INSERT INTO users (username, email, password, first_name, last_name, role, is_active, email_verified) 
+-- Insert default admin user (use INSERT IGNORE to avoid duplicate-key errors on re-import)
+INSERT IGNORE INTO users (username, email, password, first_name, last_name, role, is_active, email_verified) 
 VALUES ('admin', 'admin@soundvibe.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin', 'User', 'admin', 1, 1);
 
 -- Insert sample artists
@@ -185,3 +186,9 @@ ALTER TABLE users ADD COLUMN IF NOT EXISTS full_name VARCHAR(150) NULL AFTER las
 UPDATE users SET full_name = TRIM(CONCAT_WS(' ', NULLIF(first_name, ''), NULLIF(last_name, ''))) WHERE full_name IS NULL OR full_name = '';
 
 -- Ensure future inserts include full_name (registration code updated in app)
+
+-- Migration: add `featured` column for compatibility (some code expects `featured`)
+ALTER TABLE artists ADD COLUMN IF NOT EXISTS featured TINYINT(1) DEFAULT 0 AFTER is_featured;
+
+-- Populate `featured` from existing `is_featured` flags
+UPDATE artists SET featured = is_featured WHERE (featured IS NULL OR featured = 0) AND (is_featured IS NOT NULL AND is_featured != 0);
